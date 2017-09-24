@@ -1,4 +1,7 @@
 import socket, threading
+import time
+from neopixel import *
+
 
 HOST = '0.0.0.0'
 PORT = 51234
@@ -9,8 +12,7 @@ s.listen(4)
 clients = [] #list of clients connected
 lock = threading.Lock()
 
-import time
-from neopixel import *
+
 
 board_height=11
 board_width=11
