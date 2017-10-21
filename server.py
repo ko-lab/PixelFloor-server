@@ -1,4 +1,5 @@
 import socket, threading
+<<<<<<< HEAD
 import signal
 import sys
 
@@ -6,6 +7,11 @@ def signal_handler(signal, frame):
         print('You pressed Ctrl+C!')
         socket.close()
         sys.exit(0)
+=======
+import time
+from neopixel import *
+
+>>>>>>> 604cd56222e5f7accb487ce0d5b5f1afbbb48792
 
 HOST = '0.0.0.0'
 PORT = 51234
@@ -16,8 +22,7 @@ s.listen(4)
 clients = [] #list of clients connected
 lock = threading.Lock()
 
-import time
-from neopixel import *
+
 
 board_height=11
 board_width=11
