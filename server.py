@@ -1,4 +1,11 @@
 import socket, threading
+import signal
+import sys
+
+def signal_handler(signal, frame):
+        print('You pressed Ctrl+C!')
+        socket.close()
+        sys.exit(0)
 
 HOST = '0.0.0.0'
 PORT = 51234
@@ -53,12 +60,12 @@ class chatServer(threading.Thread):
                         if not line:
                             break
                         arguments = line.split()
-                        print arguments
+                        #print arguments
                         if arguments[0].upper() == "PX":
-                            print "accepted"
+                            #print "accepted"
                             positie = (int(arguments[2]))*11+int(arguments[1])
                             kleuren = chunkstring(arguments[3],2)
-                            print kleuren
+                            #print kleuren
                             strip.setPixelColor(positie, Color(int(kleuren[0],16), int(kleuren[1],16), int(kleuren[2],16)))
                             strip.show()
             finally:
